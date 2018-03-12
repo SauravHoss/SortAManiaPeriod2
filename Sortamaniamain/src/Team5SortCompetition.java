@@ -50,8 +50,26 @@ public class Team5SortCompetition extends SortCompetition
 		@Override
 		public int challengeFive(Comparable[] arr, Comparable query) 
 		{
-			// TODO Auto-generated method stub
-			return 0;
+			for(int i=0;i<arr.length;i++) 
+			{
+				for(int j=i+1;j<arr.length;j++) 
+				{
+					if(arr[i].compareTo(arr[j])>0) 
+					{
+						Comparable temp = arr[i];
+						arr[i] = arr[j];
+						arr[j] = temp;
+					}
+				}
+			}
+			for(int i=0;i<arr.length;i++) 
+			{
+				if(arr[i].equals(query)) 
+				{
+					return i;
+				}
+			}
+			return -1;
 		}
 
 		@Override
